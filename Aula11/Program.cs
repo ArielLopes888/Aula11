@@ -4,10 +4,16 @@
     {
         static void Main(string[] args)
         {
-            /*
-            Compra compra = new Compra();
-            Console.WriteLine(compra.converterRealParaDolar(1000));
-            */
+
+            ConversaoDolar conversaoDolar = new ConversaoDolar();
+            Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
+            double.TryParse(Console.ReadLine(), out double valorCompraReais);
+            while (valorCompraReais > 0)
+            {
+                conversaoDolar.VerificarCompra(valorCompraReais);
+                Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
+                double.TryParse(Console.ReadLine(), out valorCompraReais);
+            } 
 
 
 
@@ -17,6 +23,9 @@
 }
 
 /*
+    CÓDIGO ANTERIOR
+
+
     public class Compra
     {
         double cotacaoDoDolarHoje = 4.97;
