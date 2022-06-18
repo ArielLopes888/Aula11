@@ -9,39 +9,65 @@ namespace Aula11
     public class ConversaoDolar : Conversao
     {
 
-        private double cotacaoDaMoedaHoje;
-        private double valorDaCompraEmReais;
-        private double valorConvertido;
-        public double CotacaoDaMoedaHoje
+        private double cotacaoDaMoedaHoje = 4.57;
+        const double VALOR_MINIMO_DE_COMPRA_EM_DOLAR = 100;
+        const double VALOR_MAXIMO_DE_COMPRA_EM_DOLAR = 2500; 
+        public double valorConvertido { get; set; }
+
+
+        public override void ConversaoCompra(double valorEmReais)
         {
-            get
+            valorConvertido = valorEmReais / cotacaoDaMoedaHoje;
+        }
+
+        public override void VerificarCompra(double valorEmReais)
+        {
+            ConversaoCompra(valorEmReais);
+
+            string mensagem;
+            if (valorConvertido < VALOR_MINIMO_DE_COMPRA_EM_DOLAR)
             {
-                return cotacaoDaMoedaHoje;
+                mensagem = $"A compra mínima permitida em dólar é de ${VALOR_MINIMO_DE_COMPRA_EM_DOLAR}";
             }
-            set
+            else if (valorConvertido > VALOR_MAXIMO_DE_COMPRA_EM_DOLAR)
             {
-                cotacaoDaMoedaHoje = value;
+                mensagem = $"A compra máxima permitida em dólar é de ${VALOR_MAXIMO_DE_COMPRA_EM_DOLAR}";
             }
-        }
-
-        /*
-        public override double cotacaoDaMoedaHoje 
-        {
-            get; set;
-        }
-        */
-
-        public override void ConversaoMaxima()
-        {
-
-        }
-        public override void ConversaoMinima()
-        {
-
-        }
-        public override void ConversaoCompra()
-        {
-            valorConvertido = valorDaCompraEmReais/cotacaoDaMoedaHoje;
+            else
+            {
+                mensagem = $"Você pode comprar ${valorConvertido.ToString("F2")}";
+            }
+            Console.WriteLine(mensagem);
         }
     }
 }
+
+/* EXEMPLO DE CLASSE COM METODOS HERDADOS
+
+namespace aula11_controladores_de_acesso
+{
+    public class Humano : Mamifero
+    {
+        private string nome;
+        public string Nome
+        {
+            get
+            {
+                return nome;
+            }
+            set
+            {
+                nome = value;
+            }
+        }
+        public override void Andar()
+        {
+            Console.WriteLine("Pernas");
+        }
+        public override void Falar()
+        {
+            Console.WriteLine("Olá");
+        }
+    }
+}
+*/

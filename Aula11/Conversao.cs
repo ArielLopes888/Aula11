@@ -8,23 +8,14 @@ namespace Aula11
 {
     public abstract class Conversao
     {
-        /*
-        public double valorDaCompraEmReais;
-        public double valorMinimoDaCompra;
-        public double valorMaximoDaCompra;
-        public abstract double cotacaoDaMoedaHoje { get; set; }
-        */
-
-        abstract public void ConversaoMinima();
-        abstract public void ConversaoMaxima();
-        abstract public void ConversaoCompra();
+        abstract public void ConversaoCompra(double valorCompra);
+        abstract public void VerificarCompra(double valorCompra);
     }
-
     
 }
 
-
 /*
+ EXEMPLO DE CÓDIGO DE CLASSE ABSTRATA
 namespace aula11_controladores_de_acesso
 {
     public abstract class Mamifero
@@ -34,32 +25,4 @@ namespace aula11_controladores_de_acesso
     }
 }
 
-
-namespace aula11_controladores_de_acesso
-{
-    public class Humano : Mamifero
-    {
-        private string nome;
-        public string Nome {
-            get { 
-                return nome; 
-            }
-            set { 
-                nome = value; 
-            }
-        }
-
-        public override void Andar()
-        {
-            Console.WriteLine("Pernas");
-        }
-        public override void Falar()
-        {
-            Console.WriteLine("Olá");
-        }
-
-
-    }
-}
-
- */
+*/
