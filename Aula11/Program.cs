@@ -4,16 +4,32 @@
     {
         static void Main(string[] args)
         {
-
-            ConversaoDolar conversaoDolar = new ConversaoDolar();
-            Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
-            double.TryParse(Console.ReadLine(), out double valorCompraReais);
-            while (valorCompraReais > 0)
+            Console.WriteLine("Informe qual conversão deseja fazer: 1)Dólar  2)Euro");
+            string escolha = Console.ReadLine();
+            if (escolha == "1")
             {
-                conversaoDolar.VerificarCompra(valorCompraReais);
+                ConversaoDolar conversaoDolar = new ConversaoDolar();
                 Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
-                double.TryParse(Console.ReadLine(), out valorCompraReais);
-            } 
+                double.TryParse(Console.ReadLine(), out double valorCompraReais);
+                while (valorCompraReais > 0)
+                {
+                    conversaoDolar.VerificarCompra(valorCompraReais);
+                    Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
+                    double.TryParse(Console.ReadLine(), out valorCompraReais);
+                }
+            }
+            else
+            {
+                ConversaoEuro conversaoEuro = new ConversaoEuro();
+                Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
+                double.TryParse(Console.ReadLine(), out double valorCompraReais);
+                while (valorCompraReais > 0)
+                {
+                    conversaoEuro.VerificarCompra(valorCompraReais);
+                    Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
+                    double.TryParse(Console.ReadLine(), out valorCompraReais);
+                }
+            }
 
 
 
