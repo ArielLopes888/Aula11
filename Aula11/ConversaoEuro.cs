@@ -37,7 +37,7 @@ namespace Aula11
             {
                 mensagem = $"Você pode comprar ${valorConvertido.ToString("F2")}";
             }
-            Console.WriteLine(mensagem);
+            Console.WriteLine(mensagem + Environment.NewLine);
         }
     }
 }

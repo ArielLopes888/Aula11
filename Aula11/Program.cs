@@ -4,66 +4,44 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Informe qual conversão deseja fazer: 1)Dólar  2)Euro");
-            string escolha = Console.ReadLine();
-            if (escolha == "1")
+            double valorCompraReais = 0;
+            string escolha = "1";
+            while (escolha == "1" || escolha == "2")
             {
-                ConversaoDolar conversaoDolar = new ConversaoDolar();
-                Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
-                double.TryParse(Console.ReadLine(), out double valorCompraReais);
-                while (valorCompraReais > 0)
+                Console.WriteLine($"Informe qual conversão deseja fazer: {Environment.NewLine}1 - Dólar {Environment.NewLine}2 - Euro {Environment.NewLine}Digite qualquer outro valor para encerrar o programa.{Environment.NewLine}");
+                escolha = Console.ReadLine();
+                if (escolha == "1")
                 {
+                    ConversaoDolar conversaoDolar = new ConversaoDolar();
+                    Console.WriteLine($"{Environment.NewLine}CONVERSÃO EM DÓLAR");
+                    Console.WriteLine("Informe o valor da compra em reais");
+                    double.TryParse(Console.ReadLine(), out valorCompraReais);
+                    while (valorCompraReais <= 0)
+                    {
+                        Console.WriteLine("Por favor, informe um valor em reais válido (acima de 0)");
+                        double.TryParse(Console.ReadLine(), out valorCompraReais);
+                    }
                     conversaoDolar.VerificarCompra(valorCompraReais);
-                    Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
-                    double.TryParse(Console.ReadLine(), out valorCompraReais);
                 }
-            }
-            else
-            {
-                ConversaoEuro conversaoEuro = new ConversaoEuro();
-                Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
-                double.TryParse(Console.ReadLine(), out double valorCompraReais);
-                while (valorCompraReais > 0)
+                else if (escolha == "2")
                 {
-                    conversaoEuro.VerificarCompra(valorCompraReais);
-                    Console.WriteLine("Informe o valor da compra em reais ou informe 0 para encerrar o programa");
+                    ConversaoEuro conversaoEuro = new ConversaoEuro();
+
+
+                    Console.WriteLine($"{Environment.NewLine}CONVERSÃO EM EURO");
+                    Console.WriteLine("Informe o valor da compra em reais");
                     double.TryParse(Console.ReadLine(), out valorCompraReais);
+                    while (valorCompraReais <= 0)
+                    {
+                        Console.WriteLine("Por favor, informe um valor em reais válido (acima de 0)");
+                        double.TryParse(Console.ReadLine(), out valorCompraReais);
+                    }
+                    conversaoEuro.VerificarCompra(valorCompraReais);
                 }
             }
-
-
-
+            Console.WriteLine("Obrigada por utilizar nossos serviços!");
         }
+
     }
 
 }
-
-/*
-    CÓDIGO ANTERIOR
-
-
-    public class Compra
-    {
-        double cotacaoDoDolarHoje = 4.97;
-        const double VALOR_MINIMO_DE_COMPRA_EM_DOLAR = 100;
-        const double VALOR_MAXIMO_DE_COMPRA_EM_DOLAR = 2500;
-        public string converterRealParaDolar(double valorDaCompraEmReais)
-        {
-            double valorConvertido = valorDaCompraEmReais / cotacaoDoDolarHoje;
-            string mensagem = "";
-            if (valorConvertido < VALOR_MINIMO_DE_COMPRA_EM_DOLAR)
-            {
-                mensagem = $" A compra mínima permitida é de ${VALOR_MINIMO_DE_COMPRA_EM_DOLAR}";
-            }
-            else if (valorConvertido > VALOR_MAXIMO_DE_COMPRA_EM_DOLAR)
-            {
-                mensagem = $" A compra máxima permitida é de ${VALOR_MAXIMO_DE_COMPRA_EM_DOLAR}";
-            }
-            else
-            {
-                mensagem = $"Você pode comprar ${valorConvertido}";
-            }
-            return mensagem;
-        }
-    }
- */

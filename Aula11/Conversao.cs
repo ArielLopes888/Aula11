@@ -8,21 +8,8 @@ namespace Aula11
 {
     public abstract class Conversao
     {
-        abstract public void ConversaoCompra(double valorCompra);
-        abstract public void VerificarCompra(double valorCompra);
+        public abstract void ConversaoCompra(double valorCompra);
+        public abstract void VerificarCompra(double valorCompra);
     }
     
 }
-
-/*
- EXEMPLO DE CÓDIGO DE CLASSE ABSTRATA
-namespace aula11_controladores_de_acesso
-{
-    public abstract class Mamifero
-    {
-        public abstract void Andar();
-        public abstract void Falar();
-    }
-}
-
-*/

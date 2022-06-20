@@ -37,37 +37,8 @@ namespace Aula11
             {
                 mensagem = $"Você pode comprar ${valorConvertido.ToString("F2")}";
             }
-            Console.WriteLine(mensagem);
+            Console.WriteLine(mensagem + Environment.NewLine);
+
         }
     }
 }
-
-/* EXEMPLO DE CLASSE COM METODOS HERDADOS
-
-namespace aula11_controladores_de_acesso
-{
-    public class Humano : Mamifero
-    {
-        private string nome;
-        public string Nome
-        {
-            get
-            {
-                return nome;
-            }
-            set
-            {
-                nome = value;
-            }
-        }
-        public override void Andar()
-        {
-            Console.WriteLine("Pernas");
-        }
-        public override void Falar()
-        {
-            Console.WriteLine("Olá");
-        }
-    }
-}
-*/
